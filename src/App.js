@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import ApexCharts from "react-apexcharts";
 function App() {
-  const images = [27, 17, 22, 34];
+  const sliderdata = [27, 17, 22, 34];
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const chartoption = {
     chart: {
@@ -91,13 +91,13 @@ function App() {
 
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === sliderdata.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const goToPreviousSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? sliderdata.length - 1 : prevIndex - 1
     );
   };
   const handleMouseEnter = () => {
@@ -109,188 +109,192 @@ function App() {
   };
   return (
     <div className="app_container">
-      <div className="first_conatiner">
-        <div className="inner_wrapper">
-          <div className="add_pagination">
-            <div className="add_btn">
-              <div className="material-icons">add</div>
-            </div>
-            <div className="pagination-wrapper">
-              {" "}
-              <div className="pagination-dots">
-                {images.map((_, index) => (
-                  <span
-                    key={index}
-                    className={index === currentIndex ? "active" : ""}
-                    onClick={() => goToSlide(index)}
-                  ></span>
-                ))}
+      <div className="main-container">
+        <div className="first_conatiner">
+          <div className="inner_wrapper">
+            <div className="add_pagination">
+              <div className="add_btn">
+                <div className="material-icons">add</div>
               </div>
-            </div>
-            <div className="degree_converter">
-              <p>&deg;C</p>
-              <section className="model-5 ">
-                <div className="checkbox">
-                  <input type="checkbox" />
-                  <label></label>
-                </div>
-              </section>
-              <p>&deg;F</p>
-            </div>
-          </div>
-          <div className="city_time_container">
-            <div className="city_data">
-              <div className="city_name">
-                <span className="material-icons">near_me</span>
-                <p>New York, USA</p>
-              </div>
-              <div>07:19</div>
-            </div>
-            <div className="city_data day">
-              <div className="city_name">
-                <p>Today 28 Sept</p>
-              </div>
-              <div>19:32</div>
-            </div>
-          </div>
-          <div className="slider_wrapper">
-            <button onClick={goToPreviousSlide}>
-              <span className="material-icons">chevron_left</span>
-            </button>
-            <div className="slide_content-wrapper">
-              <div className="Slide-data">
-                <h1>{images[currentIndex]}&deg;</h1>
-                <div className="weather_data">
-                  <span className="material-icons">wb_sunny</span> <p>Sunny</p>
+              <div className="pagination-wrapper">
+                {" "}
+                <div className="pagination-dots">
+                  {sliderdata.map((_, index) => (
+                    <span
+                      key={index}
+                      className={index === currentIndex ? "active" : ""}
+                      onClick={() => goToSlide(index)}
+                    ></span>
+                  ))}
                 </div>
               </div>
-            </div>
-            {/* <p>{images[currentIndex]}</p> */}
-            <button onClick={goToNextSlide}>
-              <span className="material-icons">chevron_right</span>
-            </button>
-          </div>
-          {/* <Slider images={NUmber} /> */}
-        </div>
-      </div>
-      <div className="second_container">
-        <div className="top_container">
-          <div className="welcome_container">
-            <h2>Welcome back India!</h2>
-            <p>Check out today's weather information</p>
-          </div>
-          <div className="profile_container">
-            <div className="profile_dots">...</div>
-            <img
-              src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="graph-container">
-          <div className="chart-labels">
-            <label>Upcoming hours</label>
-            <div className="chart-dropdown">
-              <div
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                className="hover-dropdown"
-              >
-                <button>
-                  Rain precipitation
-                  <span className="material-icons">keyboard_arrow_down</span>
-                </button>
-                {isDropdownOpen && (
-                  <ul className="dropdown-menu">
-                    <li>Option 1</li>
-                    <li>Option 2</li>
-                    <li>Option 3</li>
-                  </ul>
-                )}
-              </div>
-              <div className="next-days">
-                <button>
-                  Next days
-                  <span className="material-icons">chevron_right</span>
-                </button>
+              <div className="degree_converter">
+                <p>&deg;C</p>
+                <section className="model-5 ">
+                  <div className="checkbox">
+                    <input type="checkbox" />
+                    <label></label>
+                  </div>
+                </section>
+                <p>&deg;F</p>
               </div>
             </div>
-          </div>
-          <div id="chart">
-            <ApexCharts
-              options={chartoption}
-              series={chartoption.series}
-              type="area"
-              height={150}
-            />
-          </div>
-        </div>
-        <div>
-          <h3> More details of today's weather</h3>
-        </div>
-        <div className="multiple-charts">
-          <div className="box">
-            <div className="gauge-chart">
-              <ApexCharts
-                options={options}
-                series={options.series}
-                type="radialBar"
-                height={150}
-              />
+            <div className="city_time_container">
+              <div className="city_data">
+                <div className="city_name">
+                  <span className="material-icons">near_me</span>
+                  <p>New York, USA</p>
+                </div>
+                <div>07:19</div>
+              </div>
+              <div className="city_data day">
+                <div className="city_name">
+                  <p>Today 28 Sept</p>
+                </div>
+                <div>19:32</div>
+              </div>
+            </div>
+            <div className="slider_wrapper">
+              <button onClick={goToPreviousSlide}>
+                <span className="material-icons">chevron_left</span>
+              </button>
+              <div className="slide_content-wrapper">
+                <div className="Slide-data">
+                  <h1>{sliderdata[currentIndex]}&deg;</h1>
+                  <div className="weather_data">
+                    <span className="material-icons">wb_sunny</span>{" "}
+                    <p>Sunny</p>
+                  </div>
+                </div>
+              </div>
+              <button onClick={goToNextSlide}>
+                <span className="material-icons">chevron_right</span>
+              </button>
             </div>
           </div>
-          <div className="box">
-            <div className="gauge-chart">
-              <ApexCharts
-                options={options}
-                series={options.series}
-                type="radialBar"
-                height={150}
-              />
+          <div className="second_container">
+            <div className="top_container">
+              <div className="welcome_container">
+                <h2>Welcome back India!</h2>
+                <p>Check out today's weather information</p>
+              </div>
+              <div className="profile_container">
+                <div className="profile_dots">...</div>
+                <img
+                  src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+                  alt=""
+                />
+              </div>
             </div>
-          </div>
-          <div className="box">
-            <div className="gauge-chart">
-              <ApexCharts
-                options={options}
-                series={options.series}
-                type="radialBar"
-                height={150}
-              />
+            <div className="graph-container">
+              <div className="chart-labels">
+                <label>Upcoming hours</label>
+                <div className="chart-dropdown">
+                  <div
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className="hover-dropdown"
+                  >
+                    <button>
+                      Rain precipitation
+                      <span className="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                    {isDropdownOpen && (
+                      <ul className="dropdown-menu">
+                        <li>Option 1</li>
+                        <li>Option 2</li>
+                        <li>Option 3</li>
+                      </ul>
+                    )}
+                  </div>
+                  <div className="next-days">
+                    <button>
+                      Next days
+                      <span className="material-icons">chevron_right</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="chart">
+                <ApexCharts
+                  options={chartoption}
+                  series={chartoption.series}
+                  type="area"
+                  height={140}
+                />
+              </div>
             </div>
-          </div>
-          <div className="box">
-            <div className="gauge-chart">
-              <ApexCharts
-                options={options}
-                series={options.series}
-                type="radialBar"
-                height={150}
-              />
+            <div>
+              <h3> More details of today's weather</h3>
             </div>
-          </div>
-          <div className="box">
-            <div className="gauge-chart">
-              <ApexCharts
-                options={options}
-                series={options.series}
-                type="radialBar"
-                height={150}
-              />
-            </div>
-          </div>
-          <div className="box">
-            <div className="gauge-chart">
-              <ApexCharts
-                options={options}
-                series={options.series}
-                type="radialBar"
-                height={150}
-              />
+            <div className="multiple-charts">
+              <div className="box">
+                <div className="gauge-chart">
+                  <ApexCharts
+                    options={options}
+                    series={options.series}
+                    type="radialBar"
+                    height={150}
+                  />
+                </div>
+              </div>
+              <div className="box">
+                <div className="gauge-chart">
+                  <ApexCharts
+                    options={options}
+                    series={options.series}
+                    type="radialBar"
+                    height={150}
+                  />
+                </div>
+              </div>
+              <div className="box">
+                <div className="gauge-chart">
+                  <ApexCharts
+                    options={options}
+                    series={options.series}
+                    type="radialBar"
+                    height={150}
+                  />
+                </div>
+              </div>
+              <div className="box">
+                <div className="gauge-chart">
+                  <ApexCharts
+                    options={options}
+                    series={options.series}
+                    type="radialBar"
+                    height={150}
+                  />
+                </div>
+              </div>
+              <div className="box">
+                <div className="gauge-chart">
+                  <ApexCharts
+                    options={options}
+                    series={options.series}
+                    type="radialBar"
+                    height={150}
+                  />
+                </div>
+              </div>
+              <div className="box">
+                <div className="gauge-chart">
+                  <ApexCharts
+                    options={options}
+                    series={options.series}
+                    type="radialBar"
+                    height={150}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
       {/* </div> */}
     </div>
   );
