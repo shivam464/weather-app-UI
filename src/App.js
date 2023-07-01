@@ -1,9 +1,5 @@
 import "./App.css";
-import Slider from "./components/Slider";
-import { useEffect, useState } from "react";
-// import Chart from "./components/Chart";
-// import ApexCharts from 'apexcharts';
-// import ReactApexChart from "react-apexcharts";
+import { useState } from "react";
 
 import ApexCharts from "react-apexcharts";
 function App() {
@@ -45,32 +41,7 @@ function App() {
       ],
     },
   };
-  var options3 = {
-    chart: {
-      height: 350,
-      type: "radialBar",
-    },
-    series: [70],
-    labels: ["Progress"],
-  };
-  var options2 = {
-    chart: {
-      height: 280,
-      type: "radialBar",
-    },
-    series: [67, 84, 97, 61],
-    plotOptions: {
-      radialBar: {
-        dataLabels: {
-          total: {
-            show: true,
-            label: "TOTAL",
-          },
-        },
-      },
-    },
-    labels: ["TEAM A", "TEAM B", "TEAM C", "TEAM D"],
-  };
+
   var options = {
     chart: {
       height: 280,
@@ -114,12 +85,6 @@ function App() {
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  // useEffect(() => {
-  //   var chart = new ApexCharts(document.querySelector("#chart"), chartoption);
-
-  //   chart.render();
-  // }, []);
-
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
@@ -144,7 +109,6 @@ function App() {
   };
   return (
     <div className="app_container">
-      {/* <div className="wrapper_div"> */}
       <div className="first_conatiner">
         <div className="inner_wrapper">
           <div className="add_pagination">
