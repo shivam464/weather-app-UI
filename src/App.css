@@ -1,38 +1,378 @@
-.App {
-  text-align: center;
+.app_container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #b5d8ff;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  margin: auto auto;
+  /* margin-right: auto; */
+}
+.wrapper_div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.first_conatiner {
+  height: 95%;
+  max-width: 50%;
+  width: 100%;
+  background-color: #5c9ce5;
+  position: relative;
+  border-radius: 40px 0px 0px 40px;
+  display: flex;
+  align-items: center;
+}
+.second_container {
+  background-color: #e4f1ff;
+  height: 95%;
+  width: 50%;
+  position: absolute;
+  top: 0px;
+  left: 20%;
+  border-radius: 40px;
+}
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 10px; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pagination-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.pagination-dots span.active {
+  background-color: #ffffff;
+  width: 7px;
+  height: 7px;
+}
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* margin-top: 10px; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+section {
+  /* float: left;
+  min-width: 150px;
+  width: 33.33%;
+  padding: 25px 0;
+  min-height: 100px; */
+}
+
+/*=====================*/
+.checkbox {
+  position: relative;
+  display: inline-block;
+}
+.checkbox:after,
+.checkbox:before {
+  font-family: FontAwesome;
+  font-feature-settings: normal;
+  -webkit-font-kerning: auto;
+  font-kerning: auto;
+  font-language-override: normal;
+  font-stretch: normal;
+  font-style: normal;
+  font-synthesis: weight style;
+  font-variant: normal;
+  font-weight: normal;
+  text-rendering: auto;
+}
+.checkbox label {
+  width: 90px;
+  height: 42px;
+  background: #ccc;
+  position: relative;
+  display: inline-block;
+  border-radius: 46px;
+  transition: 0.4s;
+}
+.checkbox label:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  left: 0;
+  top: -5px;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
+}
+.checkbox input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+/* .checkbox input:hover + label:after {
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+} */
+.checkbox input:checked + label:after {
+  left: 40px;
+}
+
+.model-5 .checkbox label {
+  background: #bbb;
+  height: 10px;
+  width: 34px;
+}
+.model-5 .checkbox label:after {
+  background: #fff;
+  top: -6px;
+  width: 20px;
+  height: 20px;
+}
+/* .model-5 .checkbox input:hover + label:after {
+  transform: scale(1.4, 1.4);
+} */
+/* .model-5 .checkbox input:checked + label {
+  background: #b66d0b;
+} */
+.model-5 .checkbox input:checked + label:after {
+  /* background: #ff980f; */
+  left: 17px;
+}
+
+.slider_wrapper {
+}
+
+.add_pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add_btn {
+  padding: 3px 4px;
+  border-radius: 7px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add_btn div {
+  font-size: 20px;
+}
+.inner_wrapper {
+  width: 35%;
+  height: 90%;
+  margin: 0 20px;
+  /* background: red; */
+}
+.degree_converter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.degree_converter p {
+  margin: 0;
+  color: white;
+  font-size: 13px;
+}
+.degree_converter section {
+  margin: 0 5px;
+}
+.city_time_container {
+  font-size: 14px;
+  color: white;
+  padding: 40px 0;
+}
+.city_time_container span {
+  font-size: 16px;
+  margin-right: 5px;
+}
+.city_data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.city_name {
+  display: flex;
+  justify-self: start;
+  align-items: center;
+}
+.city_name p {
+  margin: 0;
+}
+.day {
+  margin-top: 8px;
+}
+.day p {
+  font-size: 12px;
+}
+.slider_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slide_content-wrapper {
+  max-width: 200px;
+  width: 100%;
+  /* height: 150px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+}
+.slider_wrapper button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  color: #c4c1c1;
+}
+.slide_content-wrapper .Slide-data {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.slide_content-wrapper h1 {
+  font-size: 5rem;
+  margin: 0;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.weather_data {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* margin-top: 10px; */
+  color: white;
+  margin: 0;
 }
+.weather_data span {
+  margin-right: 10px;
+  font-size: 20px;
+}
+.weather_data p {
+  margin: 0;
+  font-size: 20px;
+}
+.first_conatiner {
+  background: url("./assets/images/background_imge.png") transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+#chart {
+  max-width: 100;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  /* margin: 35px auto; */
+}
+.top_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.welcome_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+}
+.profile_container img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.profile_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.welcome_container p {
+  margin: 0;
+}
+.welcome_container h2 {
+  margin: 0;
+}
+.second_container {
+  padding: 30px 40px;
+}
+.profile_container .profile_dots {
+  margin-right: 20px;
+  font-size: 30px;
+  margin-bottom: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.graph-container {
+  padding: 15px 17px;
+  background-color: white;
+  border-radius: 30px;
+  margin-top: 20px;
+}
+.hover-dropdown {
+  margin-right: 20px;
+}
+.hover-dropdown button,
+.next-days button {
+  background-color: #ebebeb;
+  border-radius: 20px;
+  border: none;
+  padding: 3px 11px;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdown-menu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dropdown-menu {
+  /* display: flex;
+  flex-direction: column; */
+  /* justify-content: center;
+  align-items: center; */
+  width: fit-content;
+  background-color: rgb(197, 197, 197);
+  text-align: start;
+  width: 90px;
+  position: absolute;
+  z-index: 999;
+  margin-top: -1px;
+  cursor: pointer;
+}
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.chart-labels label {
+  font-size: 14px;
+  font-weight: 400;
+}
+.chart-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.multiple-charts {
+  /* background-color: red; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  grid-gap: 30px;
+}
+.box {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 25px;
 }
